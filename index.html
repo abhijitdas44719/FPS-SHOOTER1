@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web FPS Prototype</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Three.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Pointer Lock Controls for FPS camera -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.min.js"></script>
+    <!-- Font Awesome for UI icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Game container -->
+    <div id="container">
+        <!-- Game canvas where Three.js will render -->
+        <div id="game-canvas"></div>
+        
+        <!-- Game UI overlay -->
+        <div id="game-ui">
+            <!-- Health bar -->
+            <div id="health-container">
+                <div class="ui-label">HEALTH</div>
+                <div id="health-bar">
+                    <div id="health-fill"></div>
+                </div>
+                <div id="health-text">100</div>
+            </div>
+            
+            <!-- Ammo counter -->
+            <div id="ammo-container">
+                <div class="ui-label">AMMO</div>
+                <div id="ammo-text">30/90</div>
+            </div>
+            
+            <!-- Weapon selector -->
+            <div id="weapon-selector">
+                <div class="weapon" id="weapon-1">1</div>
+                <div class="weapon" id="weapon-2">2</div>
+                <div class="weapon" id="weapon-3">3</div>
+            </div>
+            
+            <!-- Equipment -->
+            <div id="equipment-container">
+                <div class="equipment" id="grenade">
+                    <i class="fas fa-bomb"></i><span>3</span>
+                </div>
+                <div class="equipment" id="medkit">
+                    <i class="fas fa-medkit"></i><span>2</span>
+                </div>
+            </div>
+            
+            <!-- Minimap -->
+            <div id="minimap-container">
+                <div id="minimap"></div>
+            </div>
+            
+            <!-- Crosshair -->
+            <div id="crosshair">+</div>
+            
+            <!-- Kill feed -->
+            <div id="kill-feed"></div>
+            
+            <!-- Players alive counter -->
+            <div id="players-alive">
+                <i class="fas fa-user"></i> <span id="players-count">200</span> ALIVE
+            </div>
+        </div>
+        
+        <!-- Game menu overlay (shown before game start and when paused) -->
+        <div id="menu-overlay" class="active">
+            <div id="menu-content">
+                <h1>WEB FPS PROTOTYPE</h1>
+                <p>A first-person shooter prototype with basic AI opponents</p>
+                
+                <div id="instructions">
+                    <h2>CONTROLS</h2>
+                    <p>W, A, S, D: Movement</p>
+                    <p>MOUSE: Look around</p>
+                    <p>LEFT CLICK: Shoot</p>
+                    <p>RIGHT CLICK: Aim (Zoom for sniper)</p>
+                    <p>1, 2, 3: Switch weapons</p>
+                    <p>G: Throw grenade</p>
+                    <p>H: Use medkit</p>
+                    <p>ESC: Pause game</p>
+                </div>
+                
+                <button id="start-button">START GAME</button>
+            </div>
+        </div>
+        
+        <!-- Game over screen -->
+        <div id="game-over" class="hidden">
+            <h1>GAME OVER</h1>
+            <div id="game-stats">
+                <p>Rank: <span id="rank">0</span></p>
+                <p>Eliminations: <span id="eliminations">0</span></p>
+                <p>Accuracy: <span id="accuracy">0</span>%</p>
+            </div>
+            <button id="restart-button">PLAY AGAIN</button>
+        </div>
+    </div>
+    
+    <!-- Game scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/weapons.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/world.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
